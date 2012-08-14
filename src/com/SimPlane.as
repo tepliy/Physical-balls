@@ -7,13 +7,19 @@
  */
 package com
 {
+	import alternativa.engine3d.materials.TextureMaterial;
+	import alternativa.engine3d.resources.BitmapTextureResource;
 	import alternativa.physics3dintegration.StaticObject;
 	import alternativa.physics3dintegration.VertexLightMaterial;
 	import alternativa.physics3dintegration.utils.MeshUtils;
 	import alternativa.physicsengine.geometry.collision.CollisionType;
+	import alternativa.physicsengine.geometry.collision.primitives.CollisionBox;
 	import alternativa.physicsengine.geometry.collision.primitives.CollisionRect;
 	import alternativa.physicsengine.math.Matrix4;
+	import alternativa.physicsengine.math.Vector3;
 	import alternativa.physicsengine.physics.types.PhysicsPrimitive;
+	
+	import flash.display.Stage3D;
 
 	/**
      * EN:
@@ -23,17 +29,26 @@ package com
      * Объект плоскость. Создается физическая и графическая составляющая. Аналогично уроку hello_world.
 	 */
 	public class SimPlane extends StaticObject {
+		
+		[Embed(source="../media/textures/background.jpg")] private static const EmbedTexture:Class;
+		
 		public function SimPlane(width:int, height:int) {
 			super();
             // EN: Add a physical primitive with standart material and geometry of rectangle.
 			// RU: Добавление физического примитива стандартного материала с геометрией прямоугольника.
 			addPhysicsPrimitive(
-					new PhysicsPrimitive(new CollisionRect(width, height, CollisionType.STATIC))
+					new PhysicsPrimitive(new CollisionBox(new Vector3(width, height,10), CollisionType.STATIC))
 			);
+			// Texture
+			// Установка текстуры
+			var material:TextureMaterial = new TextureMaterial();
+			material.diffuseMap = new BitmapTextureResource(new EmbedTexture().bitmapData);
+			//material.diffuseMap.upload(Stage3D.context3);
+			
             // EN: Add a graphical represenation of plane.
 			// RU: Добавляем графическое изображение прямоугольника.
 			addAppearanceComponent(
-					MeshUtils.createRectangle(width, height, new VertexLightMaterial(0x777777))
+					MeshUtils.createRectangle(width, height, material)
 			);
 		}
 	}
