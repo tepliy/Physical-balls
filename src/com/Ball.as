@@ -43,21 +43,8 @@ package com
 			//super(atlas.getTexture(String(id)));
 			
 			var im:Image = new Image(atlas.getTexture(String(id)));
-			
 			im.width=im.height=diameter=160*Main.yResize;
-			
 			addChild(im);
-			
-			
-			
-			
-			
-			
-			
-
-			
-			//this.width=this.height=diameter=80;
-			
 			body = new Body(BodyType.DYNAMIC, new Vec2(XORRandom.randomRangeInt(40, Main.stageWidth-100), -50)); 
 			body.shapes.add(new Circle(diameter/2, new Vec2(0, 0), Material.wood()));
 			//body.id;    //cbType=CbType.get();
@@ -90,10 +77,8 @@ package com
 			gr.y = b.position.y;
 			
 			//var ba:Ball=b.graphic as Ball;
-			
 			//trace(ba.idPhys);
 
-			//b.graphic.rotation = b.rotation; //keep radians since that's what starling uses.
 			
 			
 			if(b.position.x<0 || b.position.x>Main.stageWidth)Game.GAME.stopGame();
