@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="ball.png">
+    <!-- Created with TexturePacker -->
+    <!-- http://texturepacker.com -->
+    <!--  -->
+    <SubTexture name="1" x="0" y="0" width="80" height="80"/>
+    <SubTexture name="2" x="80" y="0" width="80" height="80"/>
+    <SubTexture name="3" x="160" y="0" width="80" height="80"/>
+    <SubTexture name="4" x="0" y="80" width="80" height="80"/>
+    <SubTexture name="5" x="80" y="80" width="80" height="80"/>
+    <SubTexture name="6" x="160" y="80" width="80" height="80"/>
+</TextureAtlas>
